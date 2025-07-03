@@ -13,7 +13,7 @@ async function main() {
 
     try {
         const gltfLoader = new GLTFLoader();
-        const gltf = await gltfLoader.loadAsync('/table-runner-test-02.glb');
+        const gltf = await gltfLoader.loadAsync('./table-runner-test-02.glb');
 
         gltf.scene.traverse((child) => {
             if (child.isMesh) {
@@ -50,7 +50,7 @@ async function main() {
         const ctx = canvas2d.getContext('2d');
 
         const bgImg = new window.Image();
-        bgImg.src = '/background.jpg';
+        bgImg.src = './background.jpg';
         bgImg.onload = () => {
             ctx.drawImage(bgImg, 0, 0, width, height);
 
@@ -64,7 +64,7 @@ async function main() {
                 meshCtx.drawImage(meshImg, 0, 0, width, height);
 
                 const maskImg = new window.Image();
-                maskImg.src = '/mask.png';
+                maskImg.src = './mask.png';
                 maskImg.onload = () => {
                     meshCtx.globalCompositeOperation = 'destination-in';
                     meshCtx.drawImage(maskImg, 0, 0, width, height);
@@ -75,7 +75,7 @@ async function main() {
                     ctx.globalCompositeOperation = 'source-over';
 
                     const highlightsImg = new window.Image();
-                    highlightsImg.src = '/highlights.png';
+                    highlightsImg.src = './highlights.png';
                     highlightsImg.onload = () => {
                         ctx.globalCompositeOperation = 'screen';
                         ctx.drawImage(highlightsImg, 0, 0, width, height);
